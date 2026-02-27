@@ -4,7 +4,7 @@ A Maubot plugin that tracks backend game updates and posts rich, HTML-formatted 
 
 ## Features
 
-- Add games by steam game ID from steam store link (ex. https://store.steampowered.com/app/<game_id>.
+- Add games by steam game ID from steam store link (ex. store.steampowered.com/app/<game_id>.
 - Bot checks for game updates hourly. Posts latest game update for subscribed games. 
 
 ## Commands
