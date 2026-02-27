@@ -4,11 +4,8 @@ A Maubot plugin that tracks backend game updates and posts rich, HTML-formatted 
 
 ## Features
 
-- **Rich Patch Notes:** Instead of just sending a link, this bot uses the official Steam News API to fetch the full patch notes, converts Steam's BBCode into clean HTML, and embeds them directly in the chat!
-- **Silent Update Fallback:** If a game pushes an update but hasn't released patch notes yet, the bot still tracks raw `timeupdated` timestamps via the unofficial SteamCMD API to alert you of the drop.
-- **Per-Room Configuration:** You can add or remove different games for different Matrix rooms.
-- **Database Persistence:** Subscriptions and update histories are securely stored using Maubot's internal database structure (`asyncpg`/`sqlite`), ensuring no data is lost on reboot and avoiding Docker permission issues.
-- **Zero External Dependencies:** Built using only `aiohttp` and `json` which are natively provided by the Maubot environment.
+- Add games by steam game ID from steam store link (ex. https://store.steampowered.com/app/<game_id>.
+- Bot checks for game updates hourly. Posts latest game update for subscribed games. 
 
 ## Commands
 
@@ -37,11 +34,6 @@ The bot runs a background `asyncio` task (`check_updates_loop`) that wakes up on
 
 ## Installation
 
-1. Zip the plugin files into an `.mbp` archive:
-   ```bash
-   zip -r game-updates.mbp bot.py maubot.yaml requirements.txt
-   ```
-   *(Note: `requirements.txt` can be empty or omitted as the bot relies entirely on Maubot's built-in libraries)*
+1. Zip the plugin files into an `.mbp` archive
 2. Upload the `game-updates.mbp` file to your Maubot manager via the web interface.
 3. Create a new client and instance, link them, and invite the bot to your desired Matrix room.
-4. Ensure the bot has the correct Matrix power levels to send messages in the room!
